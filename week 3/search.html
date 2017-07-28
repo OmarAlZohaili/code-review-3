@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="css.css">
+	<title></title>
+  <script type="text/javascript">
+    function submit_form() {
+    var nameField = document.getElementById('name');
+    var ageField = document.getElementById('age');
+    var genderField = document.getElementById('gender');
+    var countryField= document.getElementById('country');
+    var horsePowerField= document.getElementById('horse-power');
+    var searchButton = document.getElementById('search');
+
+    var contract = {
+        name: nameField.value,
+        age: ageField.value,
+        gender: genderField.value,
+        country: countryField.value,
+        horsePower: horsePowerField.value
+    }
+
+    var error = validate(contract);
+
+    if (error.length > 0) {
+        alert(error);
+        return;
+    }
+
+    var value = generate_output(contract);
+    var respone = "Your monthly insurance fee is " + value + " $";
+    alert(respone);
+}
+
+function generate_output(contract) {
+    var monthly_insurance = 120
+
+    if (contract.age.toLowerCase() < 21) {
+        monthly_insurance *= 0.5;
+    } 
+    
+    if (contract.country.toLowerCase() === "Austria") {
+        monthly_insurance *= 2;
+    }
+
+    return monthly_insurance;
+}
+
+function validate(contract) {
+    valid_countries = [
+        "austria",
+        "germany",
+        "swizerland",
+        "italy"
+    ];
+
+    valid_genders = [
+        "male", "female"
+    ];          
+
+    if (contract.name.length == 0) {
+        return "ur name cant be empty.";
+    }
+    if (Number(contract.horsePower) < 1) {
+        return "HorsePower shoulf be high, not negetive or 0"
+    }
+    if (contract.gender.length == 0) {
+        return "ur gender is nothing ?";
+    }
+    if (contract.country.length == 0) {
+        return "please put ur country";
+    }
+    if (Number(contract.age) < 1) {
+        return "ohh so u wanna tell me that u r younger than my 1 day old kid ?";
+    }
+
+    if (! valid_genders.includes(contract.gender.toLowerCase())) {
+        return "Please put ur real gender";
+    }
+    if (! valid_countries.includes(contract.country.toLowerCase())) {
+        return "we are sorry but we dont serve in these country";
+    }
+    return "";
+}
+  </script>
+
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="home.html">our home page</a>
+      <a href="search.html">search</a> 
+      <a href="map.html">map</a>
+      
+    </nav>
+  
+  </header>
+  
+  <div id="wrap">
+    <form id="insurance-form" action="#" method="post">
+      <label>Name:</label>
+      <br>
+      <input type="text" name="name" id="name"/>
+      <br>
+      <label>Age:</label>
+      <br>
+      <input type="number" name="age" id="age"/>
+      <br>
+      <label>Gender:</label>
+      <br>
+      <input type="text" name="gender" id="gender"/>
+      <br>
+      <label>Country:</label>
+      <br>
+      <input type="text" name="country" id="country"/>
+      <br>
+      <label>Horse Power:</label>
+      <br>
+      <input type="number" name="horse-power" id="horse-power"/>
+      <br>
+      <input type="button" name="search" value="Submit" id="search" onclick="submit_form()"/>
+    </form>
+  </div>
+</body>
+</html>

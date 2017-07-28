@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Our Employee list</title>
+
+	<link rel="stylesheet" type="text/css" href="css.css">
+
+	<style>
+
+		img {
+			max-width: 200px;
+			max-height: 200px;
+			border: 1px solid black;
+		}
+		#table{
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			height: 70vh;
+			width: 100%;
+		}
+		a{
+			flex-basis: 15%;
+		}
+
+	</style>
+</head>
+<body onload='datloop();'>
+<script src="home.json"></script>
+<script>
+	
+	function datloop(){
+		for (i=0;i<myemployes.length;i++)
+		{ 
+			document.getElementById('table').innerHTML += '<p>'+ myemployes[i]['name']+ '<br>'+ '</p>';
+			document.getElementById('table').innerHTML += '<p>'+ myemployes[i]['email']+ '<br>' +'</p>';
+			document.getElementById('table').innerHTML += '<img class="img-employes" src="'+ myemployes[i]['picture']+ '"/>';
+			
+			
+		
+
+		}
+	}
+	datloop();
+</script>
+
+
+
+	<header>
+		<nav>
+			<a href="home.html">our home page</a>
+			<a href="search.html">search</a> 
+			<a href="map.html">map</a>
+			
+		</nav>
+
+		
+	
+	</header>
+
+		<h1 style="color: red; font-style: italic; text-align: center;">vienna's insurance</h1>
+		<h3>employees of the month</h3>
+		<div id='table'>
+
+
+
+
+</div>
+
+</body>
+</html>

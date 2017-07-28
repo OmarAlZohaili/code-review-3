@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css.css">
+</head>
+<body>
+	<header>
+		<nav>
+			<a href="home.html">our home page</a>
+			<a href="search.html">search</a> 
+			<a href="map.html">map</a>
+			
+		</nav>
+	
+	</header>
+
+
+
+	<div id="contact">
+            <p style="font-size: 17pt;color:#BA3A13">find us </p>
+            <p>Herklotzgasse 21</p>
+            <p>Vienna 1150, Austria </p>
+            <p><a href="#">+43 650 3696776</a></p>
+        </div>
+        </script>
+        <div id="map" style="width:400px;height:400px;">
+        </div>
+        <script>
+
+        	
+        	var locations = [
+			{
+				name: "Office A",
+				label: 'A',
+				coordinates: {
+					lat:48.19143233160394,
+					lng:16.343021392822266 
+				},
+				weekend: true,
+
+			}, {
+				name: "Office B",
+				label: 'B',
+				coordinates: {
+					lat:48.18158980314533,
+					lng:16.34293556213379
+				},
+				weekend: true,
+			}, {
+				name: "Office C",
+				label: 'C',
+				coordinates: {
+					lat:48.19332050758218,
+					lng:16.358814239501953
+				},
+				weekend: false,
+			}
+		];
+
+
+	        function myMap() { 
+	            var mapCanvas = document.getElementById("map");
+	            var mapOptions = {
+	                center: new google.maps.LatLng(48.190909, 16.337674),
+	                zoom: 14
+	            };
+
+	            var myLatLng = { lat: 48.190100, lng: 16.337645 };
+	            var map = new google.maps.Map(mapCanvas, mapOptions);
+	            var marker = new google.maps.Marker({
+	                position: myLatLng,
+	                map: map,
+	                title: 'Herklotzgasse 21'
+	            });
+	            function place_marker(location, map) {
+				var contentString = location.name + '<br>';
+				if (location.weekend) {
+					contentString += 'Open';
+				} else {
+					contentString += 'Closed';
+				}
+				contentString += ' on weekends.';
+
+				var infoWindow = new google.maps.InfoWindow({
+					content: contentString
+				});
+
+				var marker = new google.maps.Marker({
+				  position: location.coordinates,
+				  map: map,
+				  label: location.label,
+				});
+
+				marker.addListener('click', function() {
+					infoWindow.open(map, marker);
+				});
+			}
+
+		var myMap = draw_map();
+
+		locations.forEach(function(loc) {
+			place_marker(loc, myMap);
+		});
+			        }
+		</script>
+	        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCF5TVpHOKOq778R7mxX3xqNWB-RKwc52o&callback=myMap"></script>
+    </main>
+
+</body>
+</html>

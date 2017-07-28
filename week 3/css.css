@@ -1,0 +1,30 @@
+/* for the map */
+#contact {
+    float: left;
+    font-size: 14pt;
+    padding-right: 50px;
+}
+
+#map {
+    float: left;
+}
+
+
+/* breakpoint */
+      
+      body {
+        background-color: white;
+      }
+
+      
+      @media only screen and (max-width: 968px) {
+      body {
+        background-color: blue;
+      }
+
+      
+      }
+      @media only screen and (max-width: 725px) {
+      body {
+        background-color: green;
+      }

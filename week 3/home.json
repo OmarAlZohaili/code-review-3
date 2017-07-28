@@ -1,0 +1,27 @@
+var myemployes = [
+	{
+		"name" : "martin ", 
+		"email" : "martin@gamil.com ",
+		"picture":"http://www.cis.upenn.edu/~milom/pics/milo-martin-full-size.jpg"
+	}, 
+	{
+		"name" : "lucy ", 
+		"email" : "fashionbabe@gmail.com ",
+		"picture": "http://media.comicbook.com/uploads1/2015/06/lucy-2-141640.jpg" 
+	}, 
+	{
+		"name" : "jordan", 
+		"email" : "mr.basketball@gmail.com",
+		"picture": "https://lh4.ggpht.com/z_5FWk-zde2XLs4Zn5k4fv0zethmgQ89LZUrMnpp_3t7hYGtMteQuyLEfEsvNbFd5EA=h1080"
+	}, 
+	{
+		"name" : "tommy", 
+		"email" : "letmeteachusomething@gmail.com",
+		"picture": "http://res.cloudinary.com/thefader/image/upload/tommy2-1_eflmqx.jpg"
+	}, 
+	{
+		"name" : "sara", 
+		"email" : "mrsstealurman@gmail.com",
+		"picture": "http://www.foleyhoag.com/-/media/images/global/people/highres/m/mattern_sara_press.ashx"
+	}
+];
